@@ -1,0 +1,18 @@
+*{
+    font-size: 2rem;
+}
+
+#reg{
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+input.ng-valid.ng-touched,select.ng-valid.ng-touched{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}

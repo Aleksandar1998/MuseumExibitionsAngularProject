@@ -1,0 +1,19 @@
+<div class="container-fluid">
+<div class="mb-5" *ngFor="let exibition of userRecommendation; let i = index" style="width: 100%; text-align: center;">
+    <ng-container>
+        {{checkReverse()}}
+        <h1>{{this.exibition.exibitionName}}</h1>
+        <div class="row">
+            <div class="col-md-6 col-sm-12" [ngClass]="{'order-2': this.count%2 === 0}" >
+                <img [src]="this.exibition.imagePath" alt="" class="img-fluid" style="height: 250;">
+            </div>
+            <div class="col text-center bg-light"><p class="lead text-monospace" style="font-size: 1.5em;" >{{this.exibition.description}}</p></div>
+        </div>
+        <button   class="btn btn-primary  btn-block mt-3" [routerLink]="['/exibition']" [queryParams] = '{id:this.exibition.id,name: this.exibition.exibitionName,imagePath:this.exibition.imagePath,duration:this.exibition.duration,theme:this.exibition.theme,price:this.exibition.price,desc:this.exibition.description,isEnrolled:this.exibition.isEnrolled,attendees:this.exibition.attendees,isActive:this.exibition.isActive,page:this.exibition.page}'>Visit the exibition page</button>
+        <hr>
+    </ng-container>
+    
+
+</div>
+
+</div>

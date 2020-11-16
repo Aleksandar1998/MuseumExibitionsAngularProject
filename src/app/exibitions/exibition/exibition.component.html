@@ -1,0 +1,33 @@
+<app-navigation>/</app-navigation>
+<div class="container-fluid ">
+<div class="row mb-3">
+    <div class="col text-center">
+        <h1>{{this.exibition.exibitionName}}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <img [src]="this.exibition.imagePath" alt="" class="img-fluid" style="height: 250;">
+    </div>
+    <div class="col text-center bg-light"><p class="lead text-monospace" style="font-size: 1.5em;" >{{this.exibition.description}}</p></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col" >
+        <button *ngIf="this.exibition.isEnrolled == false && this.exibition.isActive == true" class="btn btn-primary btn-block" (click)="book()">Book a visit</button>
+        <button *ngIf="this.exibition.isActive == false" class="btn btn-danger btn-block" disabled>This exibition is not avaliable anymore</button>
+        <button *ngIf="this.exibition.isEnrolled == true && this.exibition.isActive == true" disabled class="btn btn-success w-100 btn-block">You have succesfully booked a visit</button>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col"><a  [href]="this.exibition.page" target="_blank" style="text-decoration: none;"><button type="button" class="btn btn-info btn-block">Museum page</button></a></div>
+    
+</div>
+<div class="row mt-2 "> 
+    <div class="col-4"><h3>Avaliable until: {{this.exibition.duration}}</h3></div>
+    <div class="col-4 text-center"><h3>Price: {{this.exibition.price}}$</h3></div>
+    <div class="col-4 text-right "><h3>Visiting</h3><h6 *ngFor="let attendee of this.exibition.attendees">{{attendee}}<br></h6></div>
+    
+</div>
+
+</div>

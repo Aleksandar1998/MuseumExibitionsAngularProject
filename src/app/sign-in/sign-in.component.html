@@ -1,0 +1,22 @@
+<div class="container-fluid" >
+
+    <div class="row mt-5">
+
+        <div class="col  d-flex justify-content-center text-center">
+            
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <span id='reg' class="mb-5">Sing in</span>
+                <div class="form-group mt-4">
+                    <input type="email" class="form-control" id="email" name="email" ngModel required email placeholder="Email">
+                  </div>
+                  <div class="form-group mt-4">
+                    <input type="password" class="form-control" id="password" name="password" ngModel required placeholder="Password">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block mt-4" value="Submit"/>
+                <button type="button" class="btn btn-outline-danger btn-block mt-4" [routerLink]="['/']">Back</button>
+              </form>
+              
+        </div>
+    </div>
+    
+    </div>

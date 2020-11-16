@@ -1,0 +1,11 @@
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-3"   *ngFor="let exibition of exibitions" [routerLink]="['/exibition']" [queryParams] = '{id:this.exibition.id,name: this.exibition.exibitionName,imagePath:this.exibition.imagePath,duration:this.exibition.duration,theme:this.exibition.theme,price:this.exibition.price,desc:this.exibition.description,isEnrolled:this.exibition.isEnrolled,attendees:this.exibition.attendees,isActive:this.exibition.isActive,page:this.exibition.page}'>
+        <div class="parent" >
+            <div class="child" [ngStyle]="{'background-image': 'url('+this.exibition.imagePath+')'}" >
+                <a>{{this.exibition.exibitionName}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

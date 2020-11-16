@@ -1,0 +1,27 @@
+<app-navigation>/</app-navigation>
+<div class="container">
+    <div class="row text-center mb-5">
+        <div class="col">
+            <h1>Your active and past exibitions</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12 mb-5 bg-light" *ngFor="let exibition of history; let i = index" data-id={{exibition.id}} [ngClass]="{'canceled': exibition.status=='canceled'}">
+            <img  src="{{exibition.imagePath}}" class="img-thumbnail rounded float-left" />
+            <h2>{{exibition.exibitionName}}</h2>
+            <h5 class='mt-5' style="color:red;" *ngIf="exibition.status=='canceled'">This exibition has been canceled</h5>
+            <h5 class='mt-5' style="color:green;" *ngIf="exibition.status=='Done' && reviewed == false">Thank you for visiting, please leave a review!</h5>
+            <h5 class='mt-5' style="color:green;" *ngIf="exibition.status=='Done' && reviewed == true">Thank you!</h5>
+            <h5 class='mt-5' style="color: #0275d8;" *ngIf="exibition.status=='Active'">The date of your exibition is {{this.exibition.duration}}</h5>
+            <div  *ngIf="exibition.status =='Done'" class="mt-5 mb-0 float-right" style="width: 250px;">
+                <input class="mb-1" style="height: 30px; width: 250px; border-radius: 3px;" type="number" min='0' max='5' *ngIf="!sent" name="rating" id="rating" placeholder="Your rating"><br/>
+                <button *ngIf="reviewed==false" class="btn btn-outline-success btn-block" (click)="sendRating()">Rate</button>
+              
+
+
+       
+            </div>
+        </div>
+    </div>
+</div>
